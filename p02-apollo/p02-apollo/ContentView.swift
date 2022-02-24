@@ -12,40 +12,34 @@ struct ContentView: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
 
     var body: some View {
-        NavigationView{
-            List{
-                ForEach(missions){mission in
-                    NavigationLink(destination: MissionsDetailView(mission: mission)){
-                        HStack{
-                            Image("apollo\(mission.id)")
-                                .resizable()
-                                .frame(width: 60, height: 60, alignment: .leading)
-                            VStack(alignment: .leading){
-                                Text("**\(mission.displayName)**")
-                                mission.launchDate == nil ? Text("N/A").font(.subheadline): Text(mission.launchDate!, style: .date)
-                                    .font(.subheadline)
+        ZStack{
+            NavigationView{
+                List{
+                    ForEach(missions){mission in
+                        NavigationLink(destination: MissionsDetailView(mission: mission)){
+                            HStack{
+                                Image("apollo\(mission.id)")
+                                    .resizable()
+                                    .frame(width: 60, height: 60, alignment: .leading)
+                                VStack(alignment: .leading){
+                                    Text("**\(mission.displayName)**")
+                                    mission.launchDate == nil ? Text("N/A").font(.subheadline): Text(mission.launchDate!, style: .date)
+                                        .font(.subheadline)
                                 }
+                            }
                         }
                     }
-                }
-            }.navigationTitle("NASA Missions")
+                }.navigationTitle("NASA Missions")
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().preferredColorScheme(.dark)
     }
 }
-
-//- Navigation Bar Title with mission display name
-//- Large `Image` with the correct image from `assets.xcassets`
-//- `Text` with launch date
-//- `Text` with long description
-//- `ForEach` over the crew members array inside of the `Mission` struct. Each subview shows
-//    - Crew Member’s `Image`
-//    - Crew Member’s name in a `Text`
 
 struct MissionsDetailView: View {
     
@@ -73,11 +67,10 @@ struct MissionsDetailView: View {
                         Text("\(member.name)")
                         Spacer()
 
-                    }.padding()
+                    }.padding([.leading, .trailing], 10)
                 }
             }
             
         }.navigationBarTitle("\(mission.displayName)")
-        
     }
 }
