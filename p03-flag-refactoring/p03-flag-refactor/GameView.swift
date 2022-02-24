@@ -31,15 +31,7 @@ struct GameView: View {
                 Spacer()
                     
                 ForEach(viewModel.countries, id: \.id) { country in
-                    Button(action: {
-                        if country == viewModel.targetCountry {
-                            viewModel.alertTitle = "Correct"
-                            viewModel.score += 1
-                        } else {
-                            viewModel.alertTitle = "Wrong! Thats the flag of \(country)"
-                        }
-                        
-                        viewModel.showingAlert = true
+                    Button(action:{viewModel.checkGuess(country: country)
                     }) {
                         FlagImage(imageName: country.name)
                     }
@@ -51,8 +43,7 @@ struct GameView: View {
                 Alert(title: Text(viewModel.alertTitle),
                       message: Text("Your Score is \(viewModel.score)"),
                       dismissButton: .default(Text("Continue")) {
-                    viewModel.countries = CountryList.countries.shuffled().prefix(3)
-                    viewModel.correctAnswerIndex = Int.random(in: 0...2)
+                    viewModel.shuffle()
                       })
             }
         }

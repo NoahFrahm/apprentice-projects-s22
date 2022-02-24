@@ -21,4 +21,19 @@ class GameViewModel: ObservableObject {
         return countries[correctAnswerIndex]
     }
     
+    func checkGuess(country: Country) {
+        if country == self.targetCountry {
+            self.alertTitle = "Correct"
+            self.score += 1
+        } else {
+            self.alertTitle = "Wrong! Thats the flag of \(country.name)"
+        }
+        self.showingAlert = true
+    }
+    
+    func shuffle() {
+        self.countries = CountryList.countries.shuffled().prefix(3)
+        self.correctAnswerIndex = Int.random(in: 0...2)
+    }
+    
 }
