@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct NewPostView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     @StateObject var vm = NewPostViewModel()
+    
 
     var body: some View {
         NavigationView {
@@ -30,10 +33,15 @@ struct NewPostView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Post") {
                         vm.makePost()
+                        self.presentationMode.wrappedValue.dismiss()
+
                     }
                 }
             }
-        }
+        }.navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
+
+
     }
 }
 
@@ -42,3 +50,5 @@ struct NewPostView_Previews: PreviewProvider {
         NewPostView().bothColorSchemes()
     }
 }
+
+

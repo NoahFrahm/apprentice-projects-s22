@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PostView: View {
-    let post: Post
+    @State var post: Post
+    @State var liked: Bool = false
     
     var body: some View {
         VStack(spacing: 15) {
@@ -24,16 +25,36 @@ struct PostView: View {
                         .foregroundColor(.secondary)
                         .font(.callout)
                 }
-                
                 Spacer()
+                Text(post.formattedDate)
+                    .foregroundColor(.secondary)
+                    .font(.callout)
             }
             
             Text(post.postContent)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             HStack {
-                Label("\(post.likeCount)", systemImage: "heart")
-                Label("\(post.commentCount)", systemImage: "heart")
+                Button(action: {if liked {
+                    post.likeCount -= 1
+                }
+                    else {
+                        post.likeCount += 1
+                    }
+                    liked.toggle()
+                }){
+                    Label("\(post.likeCount)", systemImage: liked ? "heart.fill": "heart")
+                    
+                        .foregroundColor(liked ? .red: .primary)
+                }
+                
+//                TODO post navigation to comment screen
+                Button(action: {}){
+                    Label(  "\(post.commentCount)",
+                        systemImage: "message")
+                    }.foregroundColor(.primary)
+//                TODO
+                
                 Spacer()
             }
         }

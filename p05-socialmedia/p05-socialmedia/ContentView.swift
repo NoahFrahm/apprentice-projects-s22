@@ -20,7 +20,8 @@ struct ContentView: View {
                     Label("New Post", systemImage: "plus.circle")
                 }
             
-            Text("Profile")
+//            Text("Profile")
+            ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
