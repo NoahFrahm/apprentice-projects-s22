@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09154E5027E267A500F0EC37 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09154E4F27E267A500F0EC37 /* LoginView.swift */; };
+		09154E5227E267B300F0EC37 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09154E5127E267B300F0EC37 /* SignUpView.swift */; };
 		872818FE27B17EFC00E98610 /* HomeFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872818FD27B17EFC00E98610 /* HomeFeedViewModel.swift */; };
 		8728190127B17F2600E98610 /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728190027B17F2600E98610 /* PostsService.swift */; };
 		87BC521C27BF47FB00A8A26C /* NewPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC521B27BF47FB00A8A26C /* NewPostViewModel.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09154E4F27E267A500F0EC37 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		09154E5127E267B300F0EC37 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		872818FD27B17EFC00E98610 /* HomeFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedViewModel.swift; sourceTree = "<group>"; };
 		8728190027B17F2600E98610 /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
 		87BC521B27BF47FB00A8A26C /* NewPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewModel.swift; sourceTree = "<group>"; };
@@ -54,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09154E4E27E2678700F0EC37 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				09154E4F27E267A500F0EC37 /* LoginView.swift */,
+				09154E5127E267B300F0EC37 /* SignUpView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		872818FF27B17F1300E98610 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +103,7 @@
 		BD71559E27A8C81800B51278 /* p05-socialmedia */ = {
 			isa = PBXGroup;
 			children = (
+				09154E4E27E2678700F0EC37 /* Authentication */,
 				BD71559F27A8C81800B51278 /* p05_socialmediaApp.swift */,
 				BD7155A127A8C81800B51278 /* ContentView.swift */,
 				872818FF27B17F1300E98610 /* Services */,
@@ -235,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDB54AB027AB469F00575FAB /* ProfileView.swift in Sources */,
+				09154E5227E267B300F0EC37 /* SignUpView.swift in Sources */,
 				BD7155B127A8C90600B51278 /* View+bothColorSchemes.swift in Sources */,
 				BD7155A227A8C81800B51278 /* ContentView.swift in Sources */,
 				87BC521C27BF47FB00A8A26C /* NewPostViewModel.swift in Sources */,
@@ -242,6 +257,7 @@
 				8728190127B17F2600E98610 /* PostsService.swift in Sources */,
 				BD7155A027A8C81800B51278 /* p05_socialmediaApp.swift in Sources */,
 				BDB54AB227AB47B900575FAB /* ProfileSettings.swift in Sources */,
+				09154E5027E267A500F0EC37 /* LoginView.swift in Sources */,
 				BDEC6A5527AA44F100455104 /* DefaultPosts.swift in Sources */,
 				872818FE27B17EFC00E98610 /* HomeFeedViewModel.swift in Sources */,
 				87BC522027BF480D00A8A26C /* NewPostView.swift in Sources */,
